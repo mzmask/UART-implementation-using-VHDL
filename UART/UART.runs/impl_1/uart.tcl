@@ -60,7 +60,6 @@ proc step_failed { step } {
   close $ch
 }
 
-set_msg_config -id {Common 17-41} -limit 10000000
 
 start_step init_design
 set ACTIVE_STEP init_design
@@ -73,7 +72,9 @@ set rc [catch {
   set_property parent.project_path D:/jobs/rastafan/UART-implementation-using-VHDL/UART/UART.xpr [current_project]
   set_property ip_output_repo D:/jobs/rastafan/UART-implementation-using-VHDL/UART/UART.cache/ip [current_project]
   set_property ip_cache_permissions {read write} [current_project]
+  set_property XPM_LIBRARIES {XPM_CDC XPM_MEMORY} [current_project]
   add_files -quiet D:/jobs/rastafan/UART-implementation-using-VHDL/UART/UART.runs/synth_1/uart.dcp
+  read_ip -quiet D:/jobs/rastafan/UART-implementation-using-VHDL/UART/UART.srcs/sources_1/ip/CDC_FIFO/CDC_FIFO.xci
   read_xdc D:/jobs/rastafan/UART-implementation-using-VHDL/UART/UART.srcs/constrs_1/new/uart.xdc
   link_design -top uart -part xc7k70tfbg484-3
   close_msg_db -file init_design.pb

@@ -10,44 +10,47 @@ architecture Behavioral of uart_tb is
 
 component uart is
     Port (
-        Clk         : in std_logic;
-        Rst         : in std_logic;             -- active low reset
-        Error       : out std_logic;
+        Clk200          : in std_logic;                     -- 200MHz clock
+        Clk             : in std_logic;                     -- 100MHz clock
+        Rst             : in std_logic;                     -- 200MHz (active low reset)
+        Error           : out std_logic;                    -- 200MHz
         
         ---- // TX ports
-        Tx          : out std_logic;
-        InputData   : in std_logic_vector(7 downto 0);
-        InputValid  : in std_logic;
-        TX_ready    : out std_logic;
+        Tx              : out std_logic;                    -- UART port
+        InputData       : in std_logic_vector(7 downto 0);  -- 200MHz
+        InputValid      : in std_logic;                     -- 200MHz
         
         ---- // RX ports
-        OutputData  : out std_logic_vector(7 downto 0);
-        OutputValid : out std_logic;
-        Rx          : in std_logic        
+        OutputData      : out std_logic_vector(7 downto 0); -- 200MHz  
+        OutputValid     : out std_logic;                    -- 200MHz
+        Rx              : in std_logic                      -- UART port
     );
 end component;
 
-signal Clk               : std_logic;
-signal Rst               : std_logic;             -- active low reset
-signal Error             : std_logic;
+signal Clk                  : std_logic;
+signal Clk200               : std_logic;
+signal Rst                  : std_logic;             -- active low reset
+signal Error                : std_logic;
 
 ---- // TX ports
-signal Tx                : std_logic;
-signal InputData         : std_logic_vector(7 downto 0);
-signal InputValid        : std_logic;
-signal TX_ready          : std_logic;
+signal Tx                   : std_logic;
+signal InputData            : std_logic_vector(7 downto 0);
+signal InputValid           : std_logic;
     
 ---- // RX ports
-signal OutputData        : std_logic_vector(7 downto 0);
-signal OutputValid       : std_logic;
-signal Rx                : std_logic; 
+signal OutputData           : std_logic_vector(7 downto 0);
+signal OutputValid          : std_logic;
+signal Rx                   : std_logic; 
 
--- clock periods
-constant CLK_PERIOD         : time := 10 ns;
+-- // clock periods
+constant CLK_PERIOD_100     : time := 10 ns;
+constant CLK_PERIOD_200     : time := 5 ns;
 
+-- // baudrate
 signal Clk_baudrate         : std_logic;
 constant BAUD_RATE          : time := 52080 ns;
 
+-- // Rx sample
 signal Rx_data              : std_logic_vector(7 downto 0) := "10101010";
 signal Rx_data_even_parity  : std_logic := '0';
 
@@ -55,6 +58,7 @@ begin
 
     uut: uart
         port map (
+            Clk200      => Clk200,
             Clk         => Clk,
             Rst         => Rst,
             Error       => Error,
@@ -63,7 +67,6 @@ begin
             Tx          => Tx,
             InputData   => InputData,
             InputValid  => InputValid,
-            TX_ready    => TX_ready,
     
             -- RX ports
             OutputData  => OutputData,
@@ -75,9 +78,17 @@ begin
     clk_100_process: process
     begin
         Clk <= '0';
-        wait for CLK_PERIOD/2;
+        wait for CLK_PERIOD_100/2;
         Clk <= '1';
-        wait for CLK_PERIOD/2;
+        wait for CLK_PERIOD_100/2;
+    end process;
+    
+    clk_200_process: process
+    begin
+        Clk200 <= '0';
+        wait for CLK_PERIOD_200/2;
+        Clk200 <= '1';
+        wait for CLK_PERIOD_200/2;
     end process;
     
     clk_19200_process: process
@@ -90,18 +101,19 @@ begin
     
     tx_simulation: process
     begin
+        InputValid              <= '0';
         wait for 5 ns;
         
         ---- Initialization
         Rst                     <= '1';
         InputValid              <= '0';
-        wait for CLK_PERIOD;
+        wait for 150 ns;
         
         ---- TX simulation
-        wait for 10 * CLK_PERIOD;
+        wait for 10 * CLK_PERIOD_200;
         InputData               <= "01010101";
         InputValid              <= '1';
-        wait for CLK_PERIOD;
+        wait for CLK_PERIOD_200;
         InputValid              <= '0';
         
         ---- End simulation
@@ -114,7 +126,6 @@ begin
     begin
         Rx                      <= '1';
         wait for 20 ns;
-        
         
         ---- RX simulation
         Rx                      <= '0'; -- start bit

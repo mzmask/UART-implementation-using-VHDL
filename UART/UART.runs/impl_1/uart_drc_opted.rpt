@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-| Date         : Tue Apr 29 16:25:13 2025
+| Date         : Tue Apr 29 19:14:01 2025
 | Host         : DESKTOP-D2HHB5O running 64-bit major release  (build 9200)
 | Command      : report_drc -file uart_drc_opted.rpt -pb uart_drc_opted.pb -rpx uart_drc_opted.rpx
 | Design       : uart

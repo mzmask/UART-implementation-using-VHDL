@@ -2,8 +2,8 @@
 # Vivado v2018.3 (64-bit)
 # SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
 # IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
-# Start of session at: Tue Apr 29 16:24:37 2025
-# Process ID: 8624
+# Start of session at: Tue Apr 29 19:06:51 2025
+# Process ID: 10848
 # Current directory: D:/jobs/rastafan/UART-implementation-using-VHDL/UART/UART.runs/synth_1
 # Command line: vivado.exe -log uart.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source uart.tcl
 # Log file: D:/jobs/rastafan/UART-implementation-using-VHDL/UART/UART.runs/synth_1/uart.vds
@@ -15,18 +15,21 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7k70t'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7k70t'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 18932 
+INFO: Helper process launched with PID 7680 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:01 ; elapsed = 00:00:01 . Memory (MB): peak = 436.926 ; gain = 99.172
+Starting RTL Elaboration : Time (s): cpu = 00:00:01 ; elapsed = 00:00:01 . Memory (MB): peak = 475.332 ; gain = 98.051
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-638] synthesizing module 'uart' [D:/jobs/rastafan/UART-implementation-using-VHDL/UART/UART.srcs/sources_1/new/uart.vhd:30]
 	Parameter Parity bound to: Even - type: string 
 	Parameter StopBits bound to: 1 - type: integer 
 	Parameter ClockFreq bound to: 100000000 - type: integer 
 	Parameter BaudRate bound to: 19200 - type: integer 
-INFO: [Synth 8-256] done synthesizing module 'uart' (1#1) [D:/jobs/rastafan/UART-implementation-using-VHDL/UART/UART.srcs/sources_1/new/uart.vhd:30]
+INFO: [Synth 8-3491] module 'CDC_FIFO' declared at 'D:/jobs/rastafan/UART-implementation-using-VHDL/UART/UART.runs/synth_1/.Xil/Vivado-10848-DESKTOP-D2HHB5O/realtime/CDC_FIFO_stub.v:6' bound to instance 'CDC_FIFO_Instant' of component 'CDC_FIFO' [D:/jobs/rastafan/UART-implementation-using-VHDL/UART/UART.srcs/sources_1/new/uart.vhd:263]
+INFO: [Synth 8-6157] synthesizing module 'CDC_FIFO' [D:/jobs/rastafan/UART-implementation-using-VHDL/UART/UART.runs/synth_1/.Xil/Vivado-10848-DESKTOP-D2HHB5O/realtime/CDC_FIFO_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'CDC_FIFO' (1#1) [D:/jobs/rastafan/UART-implementation-using-VHDL/UART/UART.runs/synth_1/.Xil/Vivado-10848-DESKTOP-D2HHB5O/realtime/CDC_FIFO_stub.v:6]
+INFO: [Synth 8-256] done synthesizing module 'uart' (2#1) [D:/jobs/rastafan/UART-implementation-using-VHDL/UART/UART.srcs/sources_1/new/uart.vhd:30]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:01 ; elapsed = 00:00:02 . Memory (MB): peak = 492.117 ; gain = 154.363
+Finished RTL Elaboration : Time (s): cpu = 00:00:01 ; elapsed = 00:00:02 . Memory (MB): peak = 531.617 ; gain = 154.336
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -39,44 +42,50 @@ Report Check Netlist:
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:01 ; elapsed = 00:00:02 . Memory (MB): peak = 492.117 ; gain = 154.363
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:01 ; elapsed = 00:00:02 . Memory (MB): peak = 531.617 ; gain = 154.336
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:01 ; elapsed = 00:00:02 . Memory (MB): peak = 492.117 ; gain = 154.363
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:01 ; elapsed = 00:00:02 . Memory (MB): peak = 531.617 ; gain = 154.336
 ---------------------------------------------------------------------------------
 INFO: [Device 21-403] Loading part xc7k70tfbg484-3
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
 Initializing timing engine
+Parsing XDC File [d:/jobs/rastafan/UART-implementation-using-VHDL/UART/UART.srcs/sources_1/ip/CDC_FIFO/CDC_FIFO/CDC_FIFO_in_context.xdc] for cell 'CDC_FIFO_Instant'
+Finished Parsing XDC File [d:/jobs/rastafan/UART-implementation-using-VHDL/UART/UART.srcs/sources_1/ip/CDC_FIFO/CDC_FIFO/CDC_FIFO_in_context.xdc] for cell 'CDC_FIFO_Instant'
 Parsing XDC File [D:/jobs/rastafan/UART-implementation-using-VHDL/UART/UART.srcs/constrs_1/new/uart.xdc]
 Finished Parsing XDC File [D:/jobs/rastafan/UART-implementation-using-VHDL/UART/UART.srcs/constrs_1/new/uart.xdc]
 INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [D:/jobs/rastafan/UART-implementation-using-VHDL/UART/UART.srcs/constrs_1/new/uart.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/uart_propImpl.xdc].
 Resolution: To avoid this warning, move constraints listed in [.Xil/uart_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 826.090 ; gain = 0.000
+Parsing XDC File [D:/jobs/rastafan/UART-implementation-using-VHDL/UART/UART.runs/synth_1/dont_touch.xdc]
+Finished Parsing XDC File [D:/jobs/rastafan/UART-implementation-using-VHDL/UART/UART.runs/synth_1/dont_touch.xdc]
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 863.566 ; gain = 0.000
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 826.098 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 863.613 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 826.098 ; gain = 0.000
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 826.098 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 863.613 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 863.613 ; gain = 0.000
+WARNING: [Timing 38-316] Clock period '10.000' specified during out-of-context synthesis of instance 'CDC_FIFO_Instant' at clock pin 'wr_clk' is different from the actual clock period '5.000', this can lead to different synthesis results.
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 826.098 ; gain = 488.344
+Finished Constraint Validation : Time (s): cpu = 00:00:05 ; elapsed = 00:00:07 . Memory (MB): peak = 864.695 ; gain = 487.414
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7k70tfbg484-3
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 826.098 ; gain = 488.344
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:05 ; elapsed = 00:00:07 . Memory (MB): peak = 864.695 ; gain = 487.414
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
+Applied set_property DONT_TOUCH = true for CDC_FIFO_Instant. (constraint file  auto generated constraint, line ).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 826.098 ; gain = 488.344
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:05 ; elapsed = 00:00:07 . Memory (MB): peak = 864.695 ; gain = 487.414
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-802] inferred FSM for state register 's_RX_stateMachine_reg' in module 'uart'
 INFO: [Synth 8-5544] ROM "s_RX_stateMachine" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
@@ -101,7 +110,7 @@ INFO: [Synth 8-5544] ROM "s_RX_stateMachine" won't be mapped to Block RAM becaus
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 's_RX_stateMachine_reg' using encoding 'sequential' in module 'uart'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 826.098 ; gain = 488.344
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:07 . Memory (MB): peak = 864.695 ; gain = 487.414
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -115,22 +124,23 @@ Start RTL Component Statistics
 Detailed RTL Component Info : 
 +---Adders : 
 	   2 Input     13 Bit       Adders := 2     
-	   2 Input      3 Bit       Adders := 2     
+	   2 Input      3 Bit       Adders := 3     
 +---XORs : 
 	   2 Input      1 Bit         XORs := 2     
 +---Registers : 
 	               13 Bit    Registers := 2     
-	                8 Bit    Registers := 2     
-	                3 Bit    Registers := 3     
-	                1 Bit    Registers := 9     
+	                8 Bit    Registers := 5     
+	                3 Bit    Registers := 4     
+	                1 Bit    Registers := 18    
 +---Muxes : 
 	   2 Input     13 Bit        Muxes := 2     
 	   2 Input      8 Bit        Muxes := 2     
 	   4 Input      8 Bit        Muxes := 1     
+	   3 Input      3 Bit        Muxes := 2     
 	   2 Input      3 Bit        Muxes := 5     
 	   7 Input      3 Bit        Muxes := 1     
-	   3 Input      3 Bit        Muxes := 1     
 	   4 Input      3 Bit        Muxes := 1     
+	   2 Input      2 Bit        Muxes := 1     
 	   2 Input      1 Bit        Muxes := 15    
 	   6 Input      1 Bit        Muxes := 5     
 	   5 Input      1 Bit        Muxes := 2     
@@ -147,22 +157,23 @@ Module uart
 Detailed RTL Component Info : 
 +---Adders : 
 	   2 Input     13 Bit       Adders := 2     
-	   2 Input      3 Bit       Adders := 2     
+	   2 Input      3 Bit       Adders := 3     
 +---XORs : 
 	   2 Input      1 Bit         XORs := 2     
 +---Registers : 
 	               13 Bit    Registers := 2     
-	                8 Bit    Registers := 2     
-	                3 Bit    Registers := 3     
-	                1 Bit    Registers := 9     
+	                8 Bit    Registers := 5     
+	                3 Bit    Registers := 4     
+	                1 Bit    Registers := 18    
 +---Muxes : 
 	   2 Input     13 Bit        Muxes := 2     
 	   2 Input      8 Bit        Muxes := 2     
 	   4 Input      8 Bit        Muxes := 1     
+	   3 Input      3 Bit        Muxes := 2     
 	   2 Input      3 Bit        Muxes := 5     
 	   7 Input      3 Bit        Muxes := 1     
-	   3 Input      3 Bit        Muxes := 1     
 	   4 Input      3 Bit        Muxes := 1     
+	   2 Input      2 Bit        Muxes := 1     
 	   2 Input      1 Bit        Muxes := 15    
 	   6 Input      1 Bit        Muxes := 5     
 	   5 Input      1 Bit        Muxes := 2     
@@ -189,7 +200,7 @@ INFO: [Synth 8-5544] ROM "s_TX_stateMachine" won't be mapped to Block RAM becaus
 INFO: [Synth 8-5546] ROM "s_RX_baudrate_counter_flag" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "s_TX_baudRate_counter_flag" won't be mapped to RAM because it is too sparse
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 826.098 ; gain = 488.344
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 864.695 ; gain = 487.414
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -201,13 +212,13 @@ Report RTL Partitions:
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 826.098 ; gain = 488.344
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 864.695 ; gain = 487.414
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 834.219 ; gain = 496.465
+Finished Timing Optimization : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 875.930 ; gain = 498.648
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -219,7 +230,7 @@ Report RTL Partitions:
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 835.883 ; gain = 498.129
+Finished Technology Mapping : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 876.992 ; gain = 499.711
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -243,7 +254,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 835.883 ; gain = 498.129
+Finished IO Insertion : Time (s): cpu = 00:00:10 ; elapsed = 00:00:12 . Memory (MB): peak = 876.992 ; gain = 499.711
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -256,7 +267,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 835.883 ; gain = 498.129
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:10 ; elapsed = 00:00:12 . Memory (MB): peak = 876.992 ; gain = 499.711
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -268,83 +279,84 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 835.883 ; gain = 498.129
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:10 ; elapsed = 00:00:12 . Memory (MB): peak = 876.992 ; gain = 499.711
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 835.883 ; gain = 498.129
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:10 ; elapsed = 00:00:12 . Memory (MB): peak = 876.992 ; gain = 499.711
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 835.883 ; gain = 498.129
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:10 ; elapsed = 00:00:12 . Memory (MB): peak = 876.992 ; gain = 499.711
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 835.883 ; gain = 498.129
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:10 ; elapsed = 00:00:12 . Memory (MB): peak = 876.992 ; gain = 499.711
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
 ---------------------------------------------------------------------------------
 
 Report BlackBoxes: 
-+-+--------------+----------+
-| |BlackBox name |Instances |
-+-+--------------+----------+
-+-+--------------+----------+
++------+--------------+----------+
+|      |BlackBox name |Instances |
++------+--------------+----------+
+|1     |CDC_FIFO      |         1|
++------+--------------+----------+
 
 Report Cell Usage: 
-+------+-------+------+
-|      |Cell   |Count |
-+------+-------+------+
-|1     |BUFG   |     1|
-|2     |CARRY4 |     6|
-|3     |LUT1   |     3|
-|4     |LUT2   |     7|
-|5     |LUT3   |     4|
-|6     |LUT4   |    15|
-|7     |LUT5   |     9|
-|8     |LUT6   |    43|
-|9     |MUXF7  |     1|
-|10    |FDRE   |    62|
-|11    |FDSE   |     1|
-|12    |IBUF   |    12|
-|13    |OBUF   |    12|
-+------+-------+------+
++------+---------+------+
+|      |Cell     |Count |
++------+---------+------+
+|1     |CDC_FIFO |     1|
+|2     |BUFG     |     2|
+|3     |CARRY4   |     6|
+|4     |LUT1     |     4|
+|5     |LUT2     |     9|
+|6     |LUT3     |     5|
+|7     |LUT4     |    19|
+|8     |LUT5     |     9|
+|9     |LUT6     |    44|
+|10    |MUXF7    |     1|
+|11    |FDRE     |    99|
+|12    |IBUF     |    13|
+|13    |OBUF     |    11|
++------+---------+------+
 
 Report Instance Areas: 
 +------+---------+-------+------+
 |      |Instance |Module |Cells |
 +------+---------+-------+------+
-|1     |top      |       |   176|
+|1     |top      |       |   233|
 +------+---------+-------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 835.883 ; gain = 498.129
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:10 ; elapsed = 00:00:12 . Memory (MB): peak = 876.992 ; gain = 499.711
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 0 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:06 ; elapsed = 00:00:08 . Memory (MB): peak = 835.883 ; gain = 164.148
-Synthesis Optimization Complete : Time (s): cpu = 00:00:10 ; elapsed = 00:00:12 . Memory (MB): peak = 835.883 ; gain = 498.129
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:06 ; elapsed = 00:00:08 . Memory (MB): peak = 876.992 ; gain = 166.633
+Synthesis Optimization Complete : Time (s): cpu = 00:00:10 ; elapsed = 00:00:12 . Memory (MB): peak = 876.992 ; gain = 499.711
 INFO: [Project 1-571] Translating synthesized netlist
 INFO: [Netlist 29-17] Analyzing 7 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 838.004 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 877.637 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
 INFO: [Common 17-83] Releasing license: Synthesis
-28 Infos, 0 Warnings, 0 Critical Warnings and 0 Errors encountered.
+31 Infos, 1 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 838.004 ; gain = 513.402
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 838.004 ; gain = 0.000
+synth_design: Time (s): cpu = 00:00:12 ; elapsed = 00:00:14 . Memory (MB): peak = 877.637 ; gain = 511.836
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 877.637 ; gain = 0.000
 WARNING: [Constraints 18-5210] No constraints selected for write.
 Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
 INFO: [Common 17-1381] The checkpoint 'D:/jobs/rastafan/UART-implementation-using-VHDL/UART/UART.runs/synth_1/uart.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file uart_utilization_synth.rpt -pb uart_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Tue Apr 29 16:24:52 2025...
+INFO: [Common 17-206] Exiting Vivado at Tue Apr 29 19:07:08 2025...

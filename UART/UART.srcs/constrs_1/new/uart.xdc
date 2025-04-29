@@ -1,8 +1,13 @@
-############################## Clock pin ############################## 
+############################## Clock pins ############################## 
 # IO_L12P_T1_MRCC_13, using MRCC pin V19
 set_property PACKAGE_PIN V19 [get_ports Clk] 
 set_property IOSTANDARD LVCMOS33 [get_ports Clk]
 create_clock -period 10.000 -name Clk -waveform {0.000 5.000} [get_ports Clk]
+
+# IO_L13P_T2_MRCC_13, using MRCC pin V19
+set_property PACKAGE_PIN Y18 [get_ports Clk200] 
+set_property IOSTANDARD LVCMOS33 [get_ports Clk200]
+create_clock -period 5.000 -name Clk200 -waveform {0.000 2.500} [get_ports Clk200]
 
 ############################## Reset pin ############################## 
 # IO_L1P_T0_13
@@ -41,9 +46,6 @@ set_property IOSTANDARD LVCMOS33 [get_ports {InputData[*]}]
 set_property PACKAGE_PIN AA20 [get_ports InputValid]        
 set_property IOSTANDARD LVCMOS33 [get_ports InputValid]
 
-# IO_L8N_T1_13
-set_property PACKAGE_PIN AB21 [get_ports TX_ready]          
-set_property IOSTANDARD LVCMOS33 [get_ports TX_ready]
 
 ############################## RX ports ############################## 
 # IO_L10P_T1_13

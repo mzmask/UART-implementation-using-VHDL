@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-| Date         : Tue Apr 29 16:25:14 2025
+| Date         : Tue Apr 29 19:14:02 2025
 | Host         : DESKTOP-D2HHB5O running 64-bit major release  (build 9200)
 | Command      : report_control_sets -verbose -file uart_control_sets_placed.rpt
 | Design       : uart
@@ -23,8 +23,8 @@ Table of Contents
 +----------------------------------------------------------+-------+
 |                          Status                          | Count |
 +----------------------------------------------------------+-------+
-| Number of unique control sets                            |    17 |
-| Unused register locations in slices containing registers |    97 |
+| Number of unique control sets                            |    26 |
+| Unused register locations in slices containing registers |   124 |
 +----------------------------------------------------------+-------+
 
 
@@ -34,10 +34,15 @@ Table of Contents
 +--------+--------------+
 | Fanout | Control Sets |
 +--------+--------------+
-|      1 |           12 |
+|      1 |           10 |
+|      2 |            3 |
+|      3 |            2 |
 |      4 |            1 |
-|      8 |            1 |
-|     13 |            3 |
+|      8 |            2 |
+|      9 |            1 |
+|     12 |            1 |
+|     13 |            2 |
+|    16+ |            4 |
 +--------+--------------+
 
 
@@ -47,38 +52,47 @@ Table of Contents
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
 +--------------+-----------------------+------------------------+-----------------+--------------+
-| No           | No                    | No                     |              13 |            6 |
-| No           | No                    | Yes                    |               0 |            0 |
-| No           | Yes                   | No                     |              26 |            9 |
-| Yes          | No                    | No                     |              18 |           13 |
-| Yes          | No                    | Yes                    |               0 |            0 |
-| Yes          | Yes                   | No                     |               6 |            4 |
+| No           | No                    | No                     |              83 |           20 |
+| No           | No                    | Yes                    |              21 |            7 |
+| No           | Yes                   | No                     |              34 |           13 |
+| Yes          | No                    | No                     |              18 |           12 |
+| Yes          | No                    | Yes                    |              28 |            5 |
+| Yes          | Yes                   | No                     |               4 |            1 |
 +--------------+-----------------------+------------------------+-----------------+--------------+
 
 
 4. Detailed Control Set Information
 -----------------------------------
 
-+----------------+-----------------------------+-----------------------------------+------------------+----------------+
-|  Clock Signal  |        Enable Signal        |          Set/Reset Signal         | Slice Load Count | Bel Load Count |
-+----------------+-----------------------------+-----------------------------------+------------------+----------------+
-|  Clk_IBUF_BUFG | s_RX_error                  | s_RX_error11_out                  |                1 |              1 |
-|  Clk_IBUF_BUFG | s_RX_outputData[0]_i_1_n_0  |                                   |                1 |              1 |
-|  Clk_IBUF_BUFG | s_RX_outputData[1]_i_1_n_0  |                                   |                1 |              1 |
-|  Clk_IBUF_BUFG | s_RX_outputData[2]_i_1_n_0  |                                   |                1 |              1 |
-|  Clk_IBUF_BUFG | s_RX_outputData[6]_i_1_n_0  |                                   |                1 |              1 |
-|  Clk_IBUF_BUFG | s_RX_outputData_valid       | s_RX_even_parity_calculated8_out  |                1 |              1 |
-|  Clk_IBUF_BUFG | s_RX_parity                 |                                   |                1 |              1 |
-|  Clk_IBUF_BUFG | s_RX_outputData[4]_i_1_n_0  |                                   |                1 |              1 |
-|  Clk_IBUF_BUFG | s_RX_outputData[5]_i_1_n_0  |                                   |                1 |              1 |
-|  Clk_IBUF_BUFG | s_RX_outputData[7]_i_1_n_0  |                                   |                1 |              1 |
-|  Clk_IBUF_BUFG | s_RX_outputData[3]_i_1_n_0  |                                   |                1 |              1 |
-|  Clk_IBUF_BUFG | s_Tx4_out                   |                                   |                1 |              1 |
-|  Clk_IBUF_BUFG | s_RX_even_parity_calculated | s_RX_even_parity_calculated8_out  |                2 |              4 |
-|  Clk_IBUF_BUFG | s_Tx_inputData              |                                   |                3 |              8 |
-|  Clk_IBUF_BUFG |                             |                                   |                6 |             13 |
-|  Clk_IBUF_BUFG |                             | s_RX_baudrate_counter[12]_i_1_n_0 |                5 |             13 |
-|  Clk_IBUF_BUFG |                             | s_TX_baudRate_counter[12]_i_1_n_0 |                4 |             13 |
-+----------------+-----------------------------+-----------------------------------+------------------+----------------+
++-------------------+-----------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------+------------------+----------------+
+|    Clock Signal   |                                         Enable Signal                                         |                                                              Set/Reset Signal                                                             | Slice Load Count | Bel Load Count |
++-------------------+-----------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------+------------------+----------------+
+|  Clk_IBUF_BUFG    | s_RX_outputData[1]_i_1_n_0                                                                    |                                                                                                                                           |                1 |              1 |
+|  Clk_IBUF_BUFG    | s_RX_outputData[0]_i_1_n_0                                                                    |                                                                                                                                           |                1 |              1 |
+|  Clk_IBUF_BUFG    | s_RX_outputData[6]_i_1_n_0                                                                    |                                                                                                                                           |                1 |              1 |
+|  Clk_IBUF_BUFG    | s_RX_outputData[7]_i_1_n_0                                                                    |                                                                                                                                           |                1 |              1 |
+|  Clk_IBUF_BUFG    | s_RX_outputData[3]_i_1_n_0                                                                    |                                                                                                                                           |                1 |              1 |
+|  Clk_IBUF_BUFG    | s_RX_outputData[2]_i_1_n_0                                                                    |                                                                                                                                           |                1 |              1 |
+|  Clk_IBUF_BUFG    | s_RX_outputData[4]_i_1_n_0                                                                    |                                                                                                                                           |                1 |              1 |
+|  Clk_IBUF_BUFG    | s_RX_outputData[5]_i_1_n_0                                                                    |                                                                                                                                           |                1 |              1 |
+|  Clk_IBUF_BUFG    | s_RX_parity                                                                                   |                                                                                                                                           |                1 |              1 |
+|  Clk_IBUF_BUFG    | s_Tx4_out                                                                                     |                                                                                                                                           |                1 |              1 |
+|  Clk200_IBUF_BUFG |                                                                                               | rst                                                                                                                                       |                1 |              2 |
+|  Clk200_IBUF_BUFG |                                                                                               | CDC_FIFO_Instant/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/rst_d2                                                                       |                1 |              2 |
+|  Clk_IBUF_BUFG    |                                                                                               | rst                                                                                                                                       |                1 |              2 |
+|  Clk_IBUF_BUFG    |                                                                                               | CDC_FIFO_Instant/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.gnsckt_wrst.gic_rst.rst_rd_reg2_inst/arststages_ff[1] |                1 |              3 |
+|  Clk_IBUF_BUFG    |                                                                                               | CDC_FIFO_Instant/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.gnsckt_wrst.gic_rst.sckt_rd_rst_ic_reg_0[0]           |                1 |              3 |
+|  Clk_IBUF_BUFG    | s_RX_even_parity_calculated                                                                   | s_RX_even_parity_calculated8_out                                                                                                          |                1 |              4 |
+|  Clk200_IBUF_BUFG |                                                                                               | OutputData[7]_i_1_n_0                                                                                                                     |                4 |              8 |
+|  Clk_IBUF_BUFG    | s_Tx_inputData                                                                                |                                                                                                                                           |                2 |              8 |
+|  Clk200_IBUF_BUFG |                                                                                               | CDC_FIFO_Instant/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.gnsckt_wrst.rst_wr_reg2_inst/arststages_ff[1]         |                2 |              9 |
+|  Clk200_IBUF_BUFG | CDC_FIFO_Instant/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwas.wsts/E[0] | CDC_FIFO_Instant/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/AR[0]                                                                        |                2 |             12 |
+|  Clk_IBUF_BUFG    |                                                                                               | s_RX_baudrate_counter[12]_i_1_n_0                                                                                                         |                4 |             13 |
+|  Clk_IBUF_BUFG    |                                                                                               | s_TX_baudRate_counter[12]_i_1_n_0                                                                                                         |                5 |             13 |
+|  Clk200_IBUF_BUFG | CDC_FIFO_Instant/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwas.wsts/E[0] |                                                                                                                                           |                2 |             16 |
+|  Clk_IBUF_BUFG    | CDC_FIFO_Instant/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gras.rsts/E[0] | CDC_FIFO_Instant/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.gnsckt_wrst.gic_rst.sckt_rd_rst_ic_reg_0[0]           |                3 |             16 |
+|  Clk_IBUF_BUFG    |                                                                                               |                                                                                                                                           |               10 |             35 |
+|  Clk200_IBUF_BUFG |                                                                                               |                                                                                                                                           |               10 |             48 |
++-------------------+-----------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------+------------------+----------------+
 
 
