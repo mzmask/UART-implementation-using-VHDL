@@ -1,0 +1,84 @@
+Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
+| Date         : Tue Apr 29 16:25:14 2025
+| Host         : DESKTOP-D2HHB5O running 64-bit major release  (build 9200)
+| Command      : report_control_sets -verbose -file uart_control_sets_placed.rpt
+| Design       : uart
+| Device       : xc7k70t
+------------------------------------------------------------------------------------
+
+Control Set Information
+
+Table of Contents
+-----------------
+1. Summary
+2. Histogram
+3. Flip-Flop Distribution
+4. Detailed Control Set Information
+
+1. Summary
+----------
+
++----------------------------------------------------------+-------+
+|                          Status                          | Count |
++----------------------------------------------------------+-------+
+| Number of unique control sets                            |    17 |
+| Unused register locations in slices containing registers |    97 |
++----------------------------------------------------------+-------+
+
+
+2. Histogram
+------------
+
++--------+--------------+
+| Fanout | Control Sets |
++--------+--------------+
+|      1 |           12 |
+|      4 |            1 |
+|      8 |            1 |
+|     13 |            3 |
++--------+--------------+
+
+
+3. Flip-Flop Distribution
+-------------------------
+
++--------------+-----------------------+------------------------+-----------------+--------------+
+| Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
++--------------+-----------------------+------------------------+-----------------+--------------+
+| No           | No                    | No                     |              13 |            6 |
+| No           | No                    | Yes                    |               0 |            0 |
+| No           | Yes                   | No                     |              26 |            9 |
+| Yes          | No                    | No                     |              18 |           13 |
+| Yes          | No                    | Yes                    |               0 |            0 |
+| Yes          | Yes                   | No                     |               6 |            4 |
++--------------+-----------------------+------------------------+-----------------+--------------+
+
+
+4. Detailed Control Set Information
+-----------------------------------
+
++----------------+-----------------------------+-----------------------------------+------------------+----------------+
+|  Clock Signal  |        Enable Signal        |          Set/Reset Signal         | Slice Load Count | Bel Load Count |
++----------------+-----------------------------+-----------------------------------+------------------+----------------+
+|  Clk_IBUF_BUFG | s_RX_error                  | s_RX_error11_out                  |                1 |              1 |
+|  Clk_IBUF_BUFG | s_RX_outputData[0]_i_1_n_0  |                                   |                1 |              1 |
+|  Clk_IBUF_BUFG | s_RX_outputData[1]_i_1_n_0  |                                   |                1 |              1 |
+|  Clk_IBUF_BUFG | s_RX_outputData[2]_i_1_n_0  |                                   |                1 |              1 |
+|  Clk_IBUF_BUFG | s_RX_outputData[6]_i_1_n_0  |                                   |                1 |              1 |
+|  Clk_IBUF_BUFG | s_RX_outputData_valid       | s_RX_even_parity_calculated8_out  |                1 |              1 |
+|  Clk_IBUF_BUFG | s_RX_parity                 |                                   |                1 |              1 |
+|  Clk_IBUF_BUFG | s_RX_outputData[4]_i_1_n_0  |                                   |                1 |              1 |
+|  Clk_IBUF_BUFG | s_RX_outputData[5]_i_1_n_0  |                                   |                1 |              1 |
+|  Clk_IBUF_BUFG | s_RX_outputData[7]_i_1_n_0  |                                   |                1 |              1 |
+|  Clk_IBUF_BUFG | s_RX_outputData[3]_i_1_n_0  |                                   |                1 |              1 |
+|  Clk_IBUF_BUFG | s_Tx4_out                   |                                   |                1 |              1 |
+|  Clk_IBUF_BUFG | s_RX_even_parity_calculated | s_RX_even_parity_calculated8_out  |                2 |              4 |
+|  Clk_IBUF_BUFG | s_Tx_inputData              |                                   |                3 |              8 |
+|  Clk_IBUF_BUFG |                             |                                   |                6 |             13 |
+|  Clk_IBUF_BUFG |                             | s_RX_baudrate_counter[12]_i_1_n_0 |                5 |             13 |
+|  Clk_IBUF_BUFG |                             | s_TX_baudRate_counter[12]_i_1_n_0 |                4 |             13 |
++----------------+-----------------------------+-----------------------------------+------------------+----------------+
+
+
